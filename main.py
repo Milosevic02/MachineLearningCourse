@@ -58,3 +58,9 @@ from sklearn.metrics import accuracy_score
 
 print('Validation accuracy score:', accuracy_score(y_valid, y_valid_pred))
 
+pd.DataFrame(y_valid, columns=['size_class'])['size_class'].value_counts()
+
+from sklearn.metrics import f1_score
+
+print('Macro F1-score:', f1_score(y_valid, y_valid_pred, average='macro'))
+
