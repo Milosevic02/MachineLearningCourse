@@ -33,3 +33,8 @@ X_train_ohe.sample(5)
 
 X_valid_ohe = ohe.transform(X_valid)
 X_valid_ohe.sample(5)
+
+from sklearn.tree import DecisionTreeClassifier
+model = DecisionTreeClassifier(random_state=42)
+model.fit(X_train_ohe, y_train)
+
