@@ -38,3 +38,9 @@ from sklearn.tree import DecisionTreeClassifier
 model = DecisionTreeClassifier(random_state=42)
 model.fit(X_train_ohe, y_train)
 
+importance = pd.DataFrame()
+importance['Feature'] = X_train_ohe.columns
+importance['Importance'] = model.feature_importances_
+importance.set_index('Feature', inplace=True)
+
+importance.sort_values(by='Importance', ascending=False)
