@@ -44,3 +44,10 @@ importance['Importance'] = model.feature_importances_
 importance.set_index('Feature', inplace=True)
 
 importance.sort_values(by='Importance', ascending=False)
+
+import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
+
+plt.figure(figsize=(20,15))
+plot_tree(model, max_depth=3, feature_names=X_train_ohe.columns, filled=True, fontsize=10)
+plt.show()
