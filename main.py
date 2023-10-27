@@ -64,3 +64,22 @@ from sklearn.metrics import f1_score
 
 print('Macro F1-score:', f1_score(y_valid, y_valid_pred, average='macro'))
 
+from sklearn.metrics import plot_confusion_matrix
+
+class_names = y_valid.unique()
+
+# Plot non-normalized and normalized confusion matrices
+titles_options = [("Confusion matrix, without normalization", None),
+                  ("Normalized confusion matrix", 'true')]
+
+for title, normalize in titles_options:
+    disp = plot_confusion_matrix(model, X_valid_ohe, y_valid,
+                                 labels=class_names,
+                                 cmap=plt.cm.Blues,
+                                 normalize=normalize)
+    disp.ax_.set_title(title)
+
+plt.show()
+
+
+
