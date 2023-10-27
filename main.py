@@ -51,3 +51,10 @@ from sklearn.tree import plot_tree
 plt.figure(figsize=(20,15))
 plot_tree(model, max_depth=3, feature_names=X_train_ohe.columns, filled=True, fontsize=10)
 plt.show()
+
+y_valid_pred = model.predict(X_valid_ohe)
+
+from sklearn.metrics import accuracy_score
+
+print('Validation accuracy score:', accuracy_score(y_valid, y_valid_pred))
+
